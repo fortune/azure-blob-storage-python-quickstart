@@ -34,7 +34,9 @@ Python SDK を使って SAS を生成する場合、`BaseBlobService` クラス�
 sas url を生成するには `make_blob_url` メソッドを使う。
 
 [BaseBlobService class](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python)
+
 [BlockBlobService class](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python)
+
 [BlobPermissions class](https://docs.microsoft.com/ja-jp/python/api/azure-storage-blob/azure.storage.blob.models.BlobPermissions?view=azure-python)
 
 ダウンロードであれば、ブラウザや `curl` コマンド、Python の標準ライブラリから sas url にアクセスし、

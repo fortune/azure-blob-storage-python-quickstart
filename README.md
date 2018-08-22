@@ -22,6 +22,7 @@
     使用方法: `python3 blob_copy.py <account name> <account key> <copy 元 container name> <copy 元 blob name> <copy 先 container name> <copy 先 blob name>`
 
     やってみるとわかるが、同一コンテナ内でコピーすると、数 GB の Blob でも一瞬でコピーできる。その Blob を別のプロセスでダウンロード中であっても同じ。
+    `copy_blob` メソッドが一瞬でコピーできるのは、非同期で best effort でやっているからなので、コピーが完了したことを当てにしてはならない。
 
 
 ## Shared Access Signatures(SAS) を利用した Blob のダウンロードとアップロード

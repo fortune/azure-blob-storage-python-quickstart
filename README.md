@@ -7,8 +7,16 @@
     使用方法: `python3 upload_blob.py <account name> <account key> <max_connections> <container name> <blob name> <local file path>`
 
     指定したローカルファイルを指定した Blob 名でアップロードする。サイズの大きいファイルは並列アップロードできるので、
-    `max_connections` を大きくしてやると、アップロードが速くなる。879 MB をデフォルトの max_connections=2 で
-    アップロードすると、2 分ちょっとかかったが、20 を指定すると 26 秒で完了した。
+    `max_connections` を大きくしてやると、アップロードが速くなる。インターネット越しに 879 MB をデフォルトの
+    max_connections=2 でアップロードすると、2 分ちょっとかかったが、20 を指定すると 26 秒で完了した。
+
+- download_blob.py
+
+    使用方法: `python3 download_blob.py <account name> <account key> <max_connections> <container name> <blob name> <local file path>`
+
+    指定した Blob を指定したローカルファイルにダウンロードする。サイズの大きいファイルは並列ダウンロードできるので、
+    `max_connections` を大きくしてやると、ダウンロードが速くなる。インターネット越しに 3.73 GB の Blob をデフォルトの
+    max_connections=2 でダウンロードすると、33 分かかったが、50 を指定すると、3 分 40 秒程度で完了した。
 
 - example.py
 

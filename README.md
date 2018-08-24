@@ -2,6 +2,14 @@
 
 [クイック スタート: Python を使用して BLOB をアップロード、ダウンロード、および一覧表示する](https://docs.microsoft.com/ja-jp/azure/storage/blobs/storage-quickstart-blobs-python) 中の https://github.com/Azure-Samples/storage-blobs-python-quickstart にあるサンプルプログラムを修正し、いくつか追加した。
 
+- upload_blob.py
+
+    使用方法: `python3 upload_blob.py <account name> <account key> <max_connections> <container name> <blob name> <local file path>`
+
+    指定したローカルファイルを指定した Blob 名でアップロードする。サイズの大きいファイルは並列アップロードできるので、
+    `max_connections` を大きくしてやると、アップロードが速くなる。879 MB をデフォルトの max_connections=2 で
+    アップロードすると、2 分ちょっとかかったが、20 を指定すると 26 秒で完了した。
+
 - example.py
 
     使用方法: `python3 example.py <account name> <account key> <container name>`

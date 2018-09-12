@@ -47,14 +47,33 @@
 
 Python SDK を使って SAS を生成する場合、`BaseBlobService` クラスの `generate_account_shared_access_signature`,
 `generate_container_shared_access_signature`, `generate_blob_shared_access_signature` メソッドを使う。
-それぞれ、Storage アカウント、コンテナ、（コンテナ内の）Blob に対する sas token を生成する。sas token から
-sas url を生成するには `make_blob_url` メソッドを使う。
+それぞれ、Storage アカウント、コンテナ、（コンテナ内の）Blob に対する sas token を生成する。これらの sas token から
+特定の Blob に対する sas url を生成するには `make_blob_url` メソッドを使う。
+
+Blob に対する SAS トークンは、特定の Blob の読み出しや書き込み、削除、作成、追加の権限を与える。
+各々の権限は、`BlobPermissions` で表す。
+
+コンテナに対する SAS トークンは、特定のコンテナ内にある Blob のリスト、任意の Blob の削除、任意の Blob の読み出し、
+任意の Blob の作成や書き込みの権限を与える。各々の権限は、`ContainerPermissions` で表す。ちなみに削除の権限を与えなくても
+作成（書き込み）の権限を与えれば上書きすることは可能。
+
+Storage アカウントに対する SAS トークンは、特定の Storage アカウント内での権限を与える。Storage アカウント内には
+Blob 以外にも File 共有や Queue、Table 等のサービスがあるので、ある権限がどういう意味をもつかはサービスにより異なる。
+各々の権限は、`AccountPermissions` で表す。ちなみに Blob サービスにおいて、コンテナを作成したり削除するためには
+このレベルの SAS が必要になる。
+
+
 
 [BaseBlobService class](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python)
 
 [BlockBlobService class](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python)
 
 [BlobPermissions class](https://docs.microsoft.com/ja-jp/python/api/azure-storage-blob/azure.storage.blob.models.BlobPermissions?view=azure-python)
+
+[ContainerPermissions class](https://docs.microsoft.com/en-us/python/api/azure-storage-blob/azure.storage.blob.models.containerpermissions?view=azure-python)
+
+[AccountPermissions class](https://docs.microsoft.com/en-us/python/api/azure-storage-common/azure.storage.common.models.accountpermissions?view=azure-python)
+
 
 ダウンロードであれば、ブラウザや `curl` コマンド、Python の標準ライブラリから sas url にアクセスし、
 Blob をダウンロードできる。sas token を使い、Azure SDK for Python を利用してダウンロードすることもできる。
